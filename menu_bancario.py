@@ -88,13 +88,45 @@ def antigo():
             print("Operação inválida!\nPor favor, selecione novamente a operação desejada.")
 
 def main():
+    LIMITE_SAQUES = 3
+    AGENCIA = "0001"
+
+    saldo = 0
+    limite = 500
+    extrato = ""
+    numero_saques = 0
+    usuarios = []
+    contas = []
 
     while True:
         opcao = menu()
 
         if opcao == "d":
-            print("Selecionando opção de DEPÓSITO.")
+            valor = float(input("Informa o valor do depósito: "))
+
+            saldo, extrato = depositar(saldo, valor, extrato)
+
         elif opcao == "s":
+            valor = float(input("Informe o valor do saque: "))
+
+            saldo, extrato = sacar(
+                saldo = saldo,
+                valor = valor,
+                extrato = extrato,
+                limite = limite,
+                numero_saques = numero_saques,
+                limite_saques = LIMITE_SAQUES,
+            )
+
+
+
+
+
+
+
+
+
+
             print("Selecionando opção de SACAR.")
         elif opcao == "e":
             print("Selecionando opção de EXTRATO.")
