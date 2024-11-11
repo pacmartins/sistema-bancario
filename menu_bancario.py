@@ -29,6 +29,13 @@ def incluir_usuario(usuarios):
 def filtrar_usuario(cpf, usuarios):
     pass
 
+def criar_conta(agencia, numero_conta, usuarios):
+    pass
+
+def listar_contas(contas):
+    pass
+
+
 def antigo():
     saldo = 0
     limite = 500
