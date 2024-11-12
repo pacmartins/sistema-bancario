@@ -117,22 +117,18 @@ def main():
                 numero_saques = numero_saques,
                 limite_saques = LIMITE_SAQUES,
             )
+            #print("Selecionando opção de SACAR.")
 
-
-
-
-
-
-
-
-
-
-            print("Selecionando opção de SACAR.")
         elif opcao == "e":
-            print("Selecionando opção de EXTRATO.")
+            extrato(saldo, extrato=extrato)
+            #print("Selecionando opção de EXTRATO.")
+
         elif opcao == "nu":
-            print("Selecionando opção de inclusão de NOVO USUÁRIO.")
+            usuarios(usuarios)
+            #print("Selecionando opção de inclusão de NOVO USUÁRIO.")
+
         elif opcao == "nc":
+            numero_contas = len(contas) + 1
             print("Selecionando opção de inclusão de NOVA CONTA.")
         elif opcao == "lc":
             print("Selecionando opção de LISTAR CONTAS.")
