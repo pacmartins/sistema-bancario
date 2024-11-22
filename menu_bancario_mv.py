@@ -84,7 +84,7 @@ def criar_conta(agencia, numero_conta, usuarios):
 
     if usuario:
         print("\n=== Conta criada com sucesso! ===")
-        return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario}
+        return {"agencia": agencia, "numero_conta": numero_conta, "usuario": usuario, "saldo": 0}
 
     print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
 
@@ -98,9 +98,21 @@ def listar_contas(contas):
             Agência:\t{conta['agencia']}
             C/C:\t\t{conta['numero_conta']}
             Titular:\t{conta['usuario']['nome']}
+            Saldo:\t{conta['saldo']}
         """
         print("=" * 100)
         print(textwrap.dedent(linha))
+
+def verifica_conta(conta, contas):
+    if not contas:
+        print("Não existem contas cadastradas")
+        return False
+
+    for cc in contas:
+        if cc['numero_conta'] == conta:
+            return True
+
+    return False
 
 def listar_usuarios(usuarios):
     if not usuarios:
@@ -128,14 +140,14 @@ def main():
     ultima_conta = 0
     usuarios = []
     contas = []
+    conta = ""
 
     while True:
         opcao = menu()
 
         if opcao == "d":
-            valor = float(input("Informe o valor do depósito: "))
-
-            saldo, extrato = depositar(saldo, valor, extrato)
+                valor = float(input("Informe o valor do depósito: "))
+                saldo, extrato = depositar(saldo, valor, extrato)
 
         elif opcao == "s":
             valor = float(input("Informe o valor do saque: "))
